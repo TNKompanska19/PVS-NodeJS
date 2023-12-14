@@ -9,9 +9,9 @@ const port = 3000;
 app.use(cors());
 
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '', // Add your MySQL password
+  host: '192.168.0.1',
+  user: 'html',
+  password: 'password', // Add your MySQL password
   database: 'sensors',
 });
 
@@ -36,7 +36,6 @@ app.get('/sensors-data', (req, res) => {
         Temperature: result.Temperature,
         Humidity: result.Humidity,
         Light: result.Light,
-        Rain: result.Rain,
         Date: new Date(result.Date).toLocaleDateString()
       }));
       res.json({ data: humidityData });
